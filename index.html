@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Path of Exile - Sedai Archivum</title>
+		<style>
+			@font-face {
+				font-family: 'Diablo';
+				src: url('./fonts/diablo.ttf');
+			}
+			body {
+				font-family: 'Diablo';
+				background-image: url('./assets/backgroundV3.png');
+				background-position: 50% 0%;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: cover;
+			}
+			.footer {
+				bottom: 0;
+				margin-bottom: auto;
+				text-align: center;
+				padding: 10px 0;
+			}
+			.navigation {
+				list-style: none;
+				font-weight: bold;
+				width: 978px;
+				font-size: 16.5px;
+				position: relative;
+				bottom: 0;
+				left: 0px;
+				right: 0px;
+				z-index: 20;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.navigation li {
+				float: left;
+				position: relative;
+				background: none;
+				padding: 0px;
+				cursor: default;
+				margin-top:147px;
+				margin-left: 90px;
+				color: white;
+				text-shadow: 0px 0px 3px red;
+			}
+			.font-diablo{
+				font-family: 'Diablo';
+				color: white;
+				text-shadow: 0px 0px 3px red;
+			}
+			a,
+			a:visited,
+			a:active
+			{
+			  color: inherit;
+			  text-decoration: none;
+			}
+			a:hover{
+				color: #ffe86e;
+				text-decoration: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<script>
+			let tocando = false
+			const myElement = document.body;
+			
+			function playMusic(){
+				if (tocando == false){
+						tocando = true
+						console.log('Mouse moved inside my body!');
+						console.log('X coordinate:', event.clientX);
+						console.log('Y coordinate:', event.clientY);
+						const audio = document.getElementById('bgm');
+						audio.muted = false;
+						audio.play();
+				}
+			}
+			
+			
+			myElement.addEventListener('click', function(event) {
+				playMusic()
+				
+			});
+			
+		</script>
+	
+		<div style="text-align:center; display:grid;">					
+		
+			<img src=".\assets\header_no_logo_btns.png" style="grid-area: 1 / 1; margin: 0 auto; margin-top: 50px;">
+			
+			<img  src=".\assets\Path_of_Exile_Logo.png" style="grid-area: 1 / 1; margin: 0 auto;"
+			title="logo"
+			width="300"
+			height="200">
+			
+			<ul class="navigation" style="grid-area: 1 / 1; margin: 0 auto;>
+				<!--style="color:white; grid-area: 1 / 1; margin: 0 auto; margin-top: 147px; margin-left: 545px" -->
+				<li><a href="#" onclick="alert('under development')"><div>Builds</div></a></li>
+				<li style="margin-left: 56px"><a href="https://www.pathofexile.com/ascendancy/classes"><div>Ascendacy</div></a></li>
+				<li style="margin-left: 53px"><a href="#" onclick="alert('under development')"><div>Recipes</div></a></li>
+				<li style="margin-left: 170px"><a href="https://www.pathofexile.com/trade/search/Mercenaries"><div>Poe Trade</div></a></li>
+				<li style="margin-left: 62px"><a href="https://www.poewiki.net/wiki/Path_of_Exile_Wiki"><div>Wiki</div></a></li>
+				<li style="margin-left: 68px"><a href="#" onclick="alert('under development')"><div>About Us</div></a></li>
+			</ul>
+			
+			
+
+		</div>
+		
+		<div style="text-align:center;" class="font-diablo">
+			<h1>Welcome to Sedai Archivum, a compendium to Path of Exile!</h1>
+			<h2>Created by Lords of Darkness guildmasters</h2>
+			<h3>We are the Lord of Light, We are Morning Star</h3>
+		</div>
+		
+		
+		
+		<div style="text-align:center;">
+			
+			<video width="25%" height="25%" autoplay loop muted>
+				<source src=".\assets\video-orchard.mp4" type="video/mp4">
+			</video>
+		
+			
+		</div>
+		
+		
+		<div class="footer">
+			<img src=".\assets\footer.png">
+		</div>
+		
+		<audio id="bgm" autoplay loop muted>
+			<source src="./assets/Path of Exile - Legion.mp3" type="audio/mp3">
+		</audio>
+		
+	</body>
+</html>
