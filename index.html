@@ -2,7 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="./assets/Path_of_Exile_Logo.png">
 		<title>Path of Exile - Sedai Archivum</title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 		<style>
 			@font-face {
 				font-family: 'Diablo';
@@ -51,6 +55,7 @@
 				font-family: 'Diablo';
 				color: white;
 				text-shadow: 0px 0px 3px red;
+				--bs-accordion-active-color:white;
 			}
 			a,
 			a:visited,
@@ -62,6 +67,19 @@
 			a:hover{
 				color: #ffe86e;
 				text-decoration: none;
+			}
+			.accordion-button:after {
+				background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+			}
+			hr{
+				border-color:#aaa;
+				border:1px solid;
+				width:90%;  
+				margin: auto;
+			}
+			.logo-hover{
+				transition: 0.3s;
+				transform: scale(1.03);
 			}
 			
 		</style>
@@ -89,51 +107,279 @@
 				
 			});
 			
+			function managePageContainer(id){
+					$("#home").hide()
+					$("#builds").hide()
+					$("#recipes").hide()
+					$("#about").hide()
+					$("#"+id).show()
+				
+			}
+			
+			$(document).ready(function(){
+				//$("#home").hide()
+				$("#builds").hide()
+				$("#recipes").hide()
+				$("#about").hide()
+				$("#recipeTab").hide()
+				$("#chaosResist").hide()
+				$("#minionHelmet").hide()
+				$("#sellingItems").hide()
+			})
+			
+			function manageRecipeContainer(id){
+				$("#recipeTab").hide()
+				$("#chaosResist").hide()
+				$("#minionHelmet").hide()
+				$("#sellingItems").hide()
+				$("#"+id).show()
+			}
+			
+			
+			function manageModalImage(id){
+				$('#imgModal').modal('show')
+				$("#imgRecipeTabExp").hide()
+				$("#imgChaosResistExp").hide()
+				$("#imgMinionHelmetExp").hide()
+				$("#imgSellingItemsExp").hide()
+				$("#"+id).show()
+				
+			}
+			
+			function manageLogoHover(bol){
+				const logo = document.getElementById("logo")
+				if(bol){
+					logo.classList.add("logo-hover")
+				}
+				else{
+					logo.classList.remove("logo-hover")
+				}
+			}
+				
+			
 		</script>
+		
 	
 		<div style="text-align:center; display:grid;">					
 		
 			<img src=".\assets\header_no_logo_btns.png" style="grid-area: 1 / 1; margin: 0 auto; margin-top: 50px;">
 			
-			<img  src=".\assets\Path_of_Exile_Logo.png" style="grid-area: 1 / 1; margin: 0 auto;"
+			<img id="logo" src=".\assets\Path_of_Exile_Logo.png" class="logo-hover" style="grid-area: 1 / 1; margin: 0 auto"
 			title="logo"
 			width="300"
 			height="200">
+			<div id="logoHover" style="grid-area: 1 / 1; margin: 0 auto; width:200px; height:130px; z-index:100; margin-top:10px" onclick="managePageContainer('home')" onmouseover="manageLogoHover(true)" onmouseout="manageLogoHover(false)"></div>
 			
 			<ul class="navigation" style="grid-area: 1 / 1; margin: 0 auto;>
 				<!--style="color:white; grid-area: 1 / 1; margin: 0 auto; margin-top: 147px; margin-left: 545px" -->
-				<li><a href="#" onclick="alert('under development')"><div>Builds</div></a></li>
-				<li style="margin-left: 56px"><a href="https://www.pathofexile.com/ascendancy/classes"><div>Ascendacy</div></a></li>
-				<li style="margin-left: 53px"><a href="#" onclick="alert('under development')"><div>Recipes</div></a></li>
-				<li style="margin-left: 170px"><a href="https://www.pathofexile.com/trade/search/Mercenaries"><div>Poe Trade</div></a></li>
-				<li style="margin-left: 62px"><a href="https://www.poewiki.net/wiki/Path_of_Exile_Wiki"><div>Wiki</div></a></li>
-				<li style="margin-left: 68px"><a href="#" onclick="alert('under development')"><div>About Us</div></a></li>
+				<li style="margin-left:80px"><a href="#" onclick="managePageContainer('builds')"><div>Builds</div></a></li>
+				<li style="margin-left: 56px"><a href="https://www.pathofexile.com/ascendancy/classes" target="_blank" rel="noopener noreferrer"><div>Ascendacy</div></a></li>
+				<li style="margin-left: 53px"><a href="#" onclick="managePageContainer('recipes')"><div>Recipes</div></a></li>
+				<li style="margin-left: 170px"><a href="https://www.pathofexile.com/trade/search/Mercenaries" target="_blank" rel="noopener noreferrer"><div>Poe Trade</div></a></li>
+				<li style="margin-left: 62px"><a href="https://www.poewiki.net/wiki/Path_of_Exile_Wiki" target="_blank" rel="noopener noreferrer"><div>Wiki</div></a></li>
+				<li style="margin-left: 68px"><a href="#" onclick="managePageContainer('about')"><div>About Us</div></a></li>
 			</ul>
 			
 			
 
 		</div>
 		
-		<div style="text-align:center;" class="font-diablo">
-			<h1>Welcome to Sedai Archivum, a compendium to Path of Exile!</h1>
-			<h2>Created by Lords of Darkness guildmasters</h2>
-			<h3>We are the Lord of Light, We are Morning Star</h3>
+		<div id="home" style="text-align:center;" class="font-diablo">
+			<div>
+				<h1>Welcome to Sedai Archivum, a compendium to Path of Exile!</h1>
+				<h2>Created by Lords of Darkness guildmasters</h2>
+				<h3>We are the Lord of Light, We are Morning Star</h3>
+			</div>
+				
+				
+				
+			<div>
+					
+				<video width="25%" height="25%" autoplay loop muted>
+					<source src=".\assets\video-orchard.mp4" type="video/mp4">
+				</video>
+				
+					
+			</div>
+		</div>
+		
+		<div id="builds" style="justify-content:center; display:flex; padding: 0 26%; height: 720px" class="font-diablo">
+			<div id="buildMenu" style="text-align:left; background-image:url('./assets/deal-background-XXL_2.png'); background-repeat: no-repeat; background-size:100% 707px; width:20%;">
+				<div style="padding-top:20px; text-align:center">Build List</div>
+				<ul id="buildList" style="padding-top:20px">
+					<li><a href="#"><div>Witch Builds</div></a></li>
+					<li><a href="#"><div>Scion Builds</div></a></li>
+				</ul>
+				<div style="text-align:center"><img src="./assets/separator.png" style="margin-top:50px; width:160px;"></img></div>
+				<ul>
+					<li style="margin-top:30px"><a href="#"><div>Spectres</div></a></li>
+				</ul>
+			</div>
+			
+			<div id="buildContainer" style="background-image:url('./assets/moldura_black.png'); background-repeat: no-repeat; background-size:100% auto; width:80%; margin-left:10px; text-align:center">
+				<div style="text-align:left; margin:20px; font-size:20px">Witch Builds</div>
+				<div class="accordion" id="meuAccordion" style="width:100%; padding-left:20px; padding-right:20px; --bs-accordion-border-color: black;">
+					<div class="accordion-item" style="background-color:#222020">
+						<h2 class="accordion-header" style="display:flex;">
+							<!--<div id="accordion-item-title" style="padding-top:0.5rem; padding-bottom:0.5rem">SRS</div>-->
+							<button class="accordion-button font-diablo" data-bs-toggle="collapse" data-bs-target="#item1" style="background-color:#222020;">
+								Necro
+							</button>
+						</h2>
+						<div id="item1" class="accordion-collapse collapse font-diablo" data-bs-parent="#meuAccordion">
+							<div class="accordion-body">
+								<div class="row">
+									<div class="col">
+										<img src=".\assets\bama.png" style="width:307px; height:204px">
+										</img>
+									</div>
+									<div class="col">
+										<div class="row" id="build-description">
+											Build focada em minions (summon raging spirit)
+										</div>
+										<div class="row" id="build-pob">
+											https://pobb.in/dOpKjf4b1oRu
+										</div>
+										<div class="row" id="build-pobbin">
+											https://pobb.in/dOpKjf4b1oRu
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
 		</div>
 		
 		
-		
-		<div style="text-align:center;">
-			
-			<video width="25%" height="25%" autoplay loop muted>
-				<source src=".\assets\video-orchard.mp4" type="video/mp4">
-			</video>
-		
-			
+		<div id="about" style="justify-content:center; display:flex; padding: 0 26%; height: 720px" class="font-diablo">
+			<div id="devMenu" style="text-align:left; background-image:url('./assets/deal-background-XXL_2.png'); background-repeat: no-repeat; background-size:100% 707px; width:20%;">
+				<div style="padding-top:20px; text-align:center">Developers</div>
+				<ul id="devList" style="padding-top:20px">
+					<li><a href="https://github.com/brinaverne" target="_blank" rel="noopener noreferrer"><div>brinaverne</div></a></li>
+					<li><a href="https://github.com/indy2000" target="_blank" rel="noopener noreferrer"><div>indy2000</div></a></li>
+				</ul>
+			</div>
+			<div id="aboutContainer" style="background-image:url('./assets/moldura_black.png'); background-repeat: no-repeat; background-size:100% auto; width:80%; margin-left:10px; text-align:center">
+				<div style="text-align:center; padding:35px; text-align:justify">This project came to exist with the objective of centralize utility tools (Poe Trade, Poe Wiki, Ascendancy page) and useful information about recipes and builds that proved useful to us in endgame content. So, this project is a compendium of useful info and direct links to utility that can be easily used to verify stuff while playing.</div>
+				
+				<div style="text-align:center; padding-left:35px; padding-right:35px; text-align:center">We wish success on your next journey through wraeclast.</div>
+				<div style="text-align:center; padding-left:35px; padding-right:35px; text-align:center; margin-bottom:20px">May the Goddess favor you.</div>
+				
+				<hr/>
+				
+				<div class="row" style="margin-top:40px">
+					<div class="col-sm-4">
+						<img src="https://avatars.githubusercontent.com/u/109311904?v=4" style="border-radius: 50%; border: 2px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,0.3); width:60%; height:100%"></img>
+					</div>
+					<div class="col-sm-4" style="padding-top:30px">
+						<div class="row">Morgan aka brinaverne</div>
+						<div class="row">
+							<ul style="text-align:left">
+								<li><div>Main Dev</div></li>
+								<li><div>Project idealization</div></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						
+						<div style="position: relative; margin-top:35px">
+							<img src="./assets/green-button.png" style="width: 150px; height:50px; position:absolute; left:10px"></img>
+							<a href="https://www.paypal.com/br/home" target="_blank" rel="noopener noreferrer" style="position:absolute; left:55px; top: 18px">Donate</a>
+						</div>
+					</div>
+				</div>
+				<div class="row" style="margin-top:40px">
+					<div class="col-sm-4">
+						<img src="https://avatars.githubusercontent.com/u/44172373?v=4" style="border-radius: 50%; border: 2px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,0.3); width:60%; height:100%"></img>
+					</div>
+					<div class="col-sm-6" style="padding-top:30px">
+						<div class="row">Yago aka indy2000</div>
+						<div class="row">
+							<ul style="text-align:left">
+								<li><div>Contributing Dev</div></li>
+								<li><div>Ayuda</div></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				
+					
+					
+			</div>
 		</div>
 		
 		
-		<div class="footer">
-			<img src=".\assets\footer.png">
+		<div id="recipes" style="justify-content:center; display:flex; padding: 0 26%; height: 720px" class="font-diablo">
+			<div id="recipesMenu" style="text-align:left; background-image:url('./assets/deal-background-XXL_2.png'); background-repeat: no-repeat; background-size:100% 707px; width:20%;">
+				<div style="padding-top:20px; text-align:center">Recipe List</div>
+				<ul id="recipesList" style="padding-top:20px">
+					<li><a href="#" onclick="manageRecipeContainer('recipeTab')"><div>Recipe Tab</div></a></li>
+					<li><a href="#" onclick="manageRecipeContainer('chaosResist')"><div>Chaos Resist Item</div></a></li>
+					<li><a href="#" onclick="manageRecipeContainer('minionHelmet')"><div>+1 Minion Helmet</div></a></li>
+				</ul>
+				<div style="text-align:center"><img src="./assets/separator.png" style="margin-top:50px; width:160px;"></img></div>
+				<ul>
+					<li style="margin-top:30px"><a href="#" onclick="manageRecipeContainer('sellingItems')"><div>Selling Items</div></a></li>
+				</ul>
+				
+			</div>
+			<div id="recipeContainer" style="background-image:url('./assets/moldura_black.png'); background-repeat: no-repeat; background-size:100% auto; width:80%; margin-left:10px; text-align:center">
+				<div id="recipeTab">
+					<div style="text-align:left; margin:20px; font-size:20px">Recipe Tab</div>
+					<div style="text-align:left; margin-left:28px; margin-top:40px; font-size:14px">Click on the image to expand</div>
+					<div>
+						<img id="imgRecipeTab" src="https://raw.githubusercontent.com/willhuynh/VendorRecipeCheatsheet/refs/heads/main/Standard.png" onclick="manageModalImage('imgRecipeTabExp')" style="width:650px; height:400px"></img>
+					</div>
+					<div style="margin-top:10px"><a href="https://github.com/willhuynh/VendorRecipeCheatsheet" target="_blank" rel="noopener noreferrer">Credits to willhuynh and Michaelangel007</a></div>
+				</div>
+				<div id="chaosResist">
+					<div style="text-align:left; margin:20px; font-size:20px">Chaos Resist Item</div>
+					<div style="text-align:left; margin-left:28px; margin-top:40px; font-size:14px">Click on the image to expand</div>
+					<div>
+						<img id="imgChaosResist" src="./assets/poe-chaos-resist-item.png" onclick="manageModalImage('imgChaosResistExp')" style="width:650px; height:520px"></img>
+					</div>
+					<div style="margin-top:10px"><a href="https://maxroll.gg/poe/resources/vendor-recipes" target="_blank" rel="noopener noreferrer">Credits to maxroll website</a></div>
+				</div>
+				<div id="minionHelmet">
+					<div style="text-align:left; margin:20px; font-size:20px">+1 Minion Helmet</div>
+					<div style="text-align:left; margin-left:28px; margin-top:40px; font-size:14px">Click on the image to expand</div>
+					<div>
+						<img id="imgMinionHelmet" src="./assets/poe-minion-helmet.png" onclick="manageModalImage('imgMinionHelmetExp')" style="width:650px; height:130px"></img>
+					</div>
+					<div style="margin-top:10px"><a href="https://maxroll.gg/poe/resources/vendor-recipes" target="_blank" rel="noopener noreferrer">Credits to maxroll website</a></div>
+				</div>
+				<div id="sellingItems">
+					<div style="text-align:left; margin:20px; font-size:20px">Selling Items to Vendor</div>
+					<div style="text-align:left; margin-left:28px; margin-top:40px; font-size:14px">Click on the image to expand</div>
+					<div>
+						<img id="imgSellingItems" src="./assets/poe-normal-recipes.png" onclick="manageModalImage('imgSellingItemsExp')" style="width:650px; height:190px"></img>
+					</div>
+					<div style="margin-top:10px"><a href="https://maxroll.gg/poe/resources/vendor-recipes" target="_blank" rel="noopener noreferrer">Credits to maxroll website</a></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-xl">
+				<div class="modal-content bg-transparent border-0">
+					<div class="modal-body text-center">
+						<img id="imgRecipeTabExp" src="https://raw.githubusercontent.com/willhuynh/VendorRecipeCheatsheet/refs/heads/main/Standard.png" alt="Imagem Expandida" class="img-fluid rounded shadow"></img>
+						<img id="imgChaosResistExp" src="./assets/poe-chaos-resist-item.png" alt="Imagem Expandida" class="img-fluid rounded shadow"></img>
+						<img id="imgMinionHelmetExp" src="./assets/poe-minion-helmet.png" alt="Imagem Expandida" class="img-fluid rounded shadow"></img>
+						<img id="imgSellingItemsExp" src="./assets/poe-normal-recipes.png" alt="Imagem Expandida" class="img-fluid rounded shadow"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="footer" style="justify-content:center; display:flex; padding: 0 26%"">
+			<img src=".\assets\footer.png"></img>
 		</div>
 		
 		<audio id="bgm" autoplay loop muted>
