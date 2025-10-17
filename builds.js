@@ -1,0 +1,19 @@
+	const buildsData = [{
+		id: 1,
+		character: "Witch",
+		pobUrl: "",
+		pobbinUrl: "https://pobb.in/dOpKjf4b1oRu",
+		buildImageUrl: "assets/bama.png",
+		buildName: "Summon Ragin Spirit (SRS)",
+		buildDescription: "Build focada em minions",
+		
+	},
+	{
+		id: 2,
+		character: "Scion",
+		pobUrl: "",
+		pobbinUrl: "",
+		buildImageUrl: "assets/bama.png",
+		buildName: "Spectral Throw",
+		buildDescription: "High DPS stack build",
+	}];
