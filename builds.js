@@ -13,7 +13,7 @@
 		character: "Scion",
 		pobUrl: "",
 		pobbinUrl: "",
-		buildImageUrl: "assets/bama.png",
+		buildImageUrl: "assets/spectral_throw.png",
 		buildName: "Spectral Throw",
 		buildDescription: "High DPS stack build",
 	}];
