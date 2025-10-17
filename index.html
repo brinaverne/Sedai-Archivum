@@ -157,6 +157,7 @@
 				$("#chaosResist").hide()
 				$("#minionHelmet").hide()
 				$("#sellingItems").hide()
+				$("#recipeContainerDescription").hide()
 				$("#"+id).show()
 			}
 			
@@ -184,6 +185,7 @@
 			function manageBuildContainer(id){
 				$("#witchBuilds").hide()
 				$("#spectres").hide()
+				$("#buildContainerDescription").hide()
 				$("#"+id).show()
 			}
 				
@@ -248,6 +250,10 @@
 			</div>
 			
 			<div id="buildContainer" style="background-image:url('./assets/moldura_black.png'); background-repeat: no-repeat; background-size:100% 707px; width:80%; margin-left:10px; text-align:center">
+				<div id="buildContainerDescription" style="text-align:center; padding:35px; text-align:justify">
+					<div>This is a <b>Build List</b> containing info about builds that we used and could clear endgame content, separeted per character. Including build description, pob and pobbin links.</div>
+					<div><b>Spectres</b> contains a list of spectres that are powerful and their respective info (buff's, debuff's to enemies and auras). Also contains direct links to Wiki page (raise spectre skill page, each spectre page and the they provide auras).</div>
+				</div>
 				<div id="witchBuilds">
 					<div style="text-align:left; margin:20px; font-size:20px">Witch Builds</div>
 					<div class="accordion" id="meuAccordion" style="width:100%; padding-left:20px; padding-right:20px; --bs-accordion-border-color: black;">
@@ -378,6 +384,14 @@
 				
 			</div>
 			<div id="recipeContainer" style="background-image:url('./assets/moldura_black.png'); background-repeat: no-repeat; background-size:100% 707px; width:80%; margin-left:10px; text-align:center">
+				<div id="recipeContainerDescription" style="text-align:center; padding:35px; text-align:justify">
+					<div>This is a <b>Recipe list</b> containing most used recipes separeted by category.</div>
+					<div><b>Recipe Tab</b> contains a image resource with almost all recipes that will be helpfull on your playthrough.</div>
+					<div><b>Chaos Resist Item</b>, as the name says, contains the recipe to build an item with chaos resistance.</div>
+					<div><b>+1 Minion Helmet</b> contains the recipe that most minion builds would like to have, a helmet with +1 to all minion skills.</div>
+					<div><b>Selling Items</b> indicates what you will receive when selling items to npc's, based on the rarity of the item.</div>
+					<div style="text-align:center"><img src="./assets/Recipes.png" style="width:206px; height:334px"></img></div>
+				</div>
 				<div id="recipeTab">
 					<div style="text-align:left; margin:20px; font-size:20px">Recipe Tab</div>
 					<div style="text-align:left; margin-left:28px; margin-top:40px; font-size:14px">Click on the image to expand</div>
