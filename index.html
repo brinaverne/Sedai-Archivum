@@ -173,7 +173,7 @@
 				var dynamicHtmlElement = `<div class="accordion" id="accordion_${buildObj.character}_${buildObj.id}" style="width:100%; padding-left:20px; padding-right:20px; --bs-accordion-border-color: black; margin-bottom:10px">
 						<div class="accordion-item" style="background-color:#222020">
 							<h2 class="accordion-header" style="display:flex;">
-								<button class="accordion-button font-diablo" data-bs-toggle="collapse" data-bs-target="#item_accordion_${buildObj.character}_${buildObj.id}" style="background-color:#222020;">
+								<button class="accordion-button font-diablo" data-bs-toggle="collapse" data-bs-target="#item_accordion_${buildObj.character}_${buildObj.id}" style="background-color:#434956;">
 									${buildObj.buildName}
 								</button>
 							</h2>
@@ -184,14 +184,17 @@
 											<img src="${buildObj.buildImageUrl}" style="width:${imgDimensions.width}px; height:${imgDimensions.height}px">
 											</img>
 										</div>
-										<div class="col">
-											<div class="row" id="build-description">
+										<div class="col" style="text-align:justify">
+											<div class="row" style="font-weight:bold">Description:</div>
+											<div class="row" id="build-description_${buildObj.id}">
 												${buildObj.buildDescription}
 											</div>
-											<div class="row" id="build-pob">
-												${buildObj.pobUrl}
+											<div class="row" style="font-weight:bold">Pob Code:</div>
+											<div class="row" id="build-pob_${buildObj.id}" data-custom-value="${buildObj.pobUrl}">
+												<a href="#" onclick="copyToClipboard('build-pob_${buildObj.id}')" style="padding-left:0px">Click to copy</a>
 											</div>
-											<div class="row" id="build-pobbin">
+											<div class="row" style="font-weight:bold">Pobbin Link:</div>
+											<div class="row" id="build-pobbin_${buildObj.id}">
 												${buildObj.pobbinUrl}
 											</div>
 										</div>
@@ -290,6 +293,13 @@
 					loadBuilds(id, className);
 				}
 				$("#"+id).show();
+			}
+			function copyToClipboard(elementId) {
+				const texto = document.getElementById(elementId).dataset.customValue;
+				console.log(texto)
+				navigator.clipboard.writeText(texto)
+				.then(() => console.log("Copiado para a área de transferência!"))
+				.catch(err => console.error("Erro ao copiar:", err));
 			}
 				
 			
@@ -452,7 +462,7 @@
 						
 						<div style="position: relative; margin-top:35px">
 							<img src="./assets/green-button.png" style="width: 150px; height:50px; position:absolute; left:10px"></img>
-							<a href="https://www.paypal.com/br/home" target="_blank" rel="noopener noreferrer" style="position:absolute; left:55px; top: 18px">Donate</a>
+							<a href="https://www.paypal.com/donate/?business=633Q9SWMJQJWC&no_recurring=0&item_name=Thanks+for+buying+me+a+cup+of+coffee%21&currency_code=BRL" target="_blank" rel="noopener noreferrer" style="position:absolute; left:55px; top: 18px">Donate</a>
 						</div>
 					</div>
 				</div>

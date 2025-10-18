@@ -1,0 +1,5 @@
+This is a Recipe list containing most used recipes separeted by category.
+Recipe Tab contains a image resource with almost all recipes that will be helpfull on your playthrough.
+Chaos Resist Item, as the name says, contains the recipe to build an item with chaos resistance.
++1 Minion Helmet contains the recipe that most minion builds would like to have, a helmet with +1 to all minion skills.
+Selling Items indicates what you will receive when selling items to npc's, based on the rarity of the item.

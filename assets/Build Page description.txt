@@ -1,0 +1,2 @@
+This is a Build List containing info about builds that we used and could clear endgame content, separeted per character. Including build description, pob and pobbin links.
+Spectres contains a list of spectres that are powerful and their info (buff's, debuff's to enemies and auras). Also contains direct links to Wiki page (raise spectre skill page, each spectre page and the they provide auras).
