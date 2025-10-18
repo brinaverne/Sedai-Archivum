@@ -118,25 +118,14 @@
 				console.log('Builds:' + JSON.stringify(lista_builds));
 				
 				document.getElementById(parentElement).innerHTML = '';	
+				
+				var dynamicHtmlElement = `<div id="classNameLabel_${buildObj.character}" style="text-align:left; margin:20px; font-size:20px">${buildObj.character} Builds</div>`;
 				lista_builds.filter(function(item){ return item.character == className}).forEach( function(item) {
 				
-					renderBuildAccordion(parentElement, item);
+					dynamicHtmlElement += renderBuildAccordion(parentElement, item);
 				});
-				/*fetch('./builds.json') 
-					.then(response => {
-						if (!response.ok) {
-						  throw new Error("Erro ao carregar JSON: " + response.status);
-						}
-						return response.json(); 
-					})
-					.then(dados => {
-						lista_builds = JSON.stringify(dados);
-						console.log('Builds:' + lista_builds);
-					})
-					.catch(error => {
-						console.error(error);
-					});*/
 				
+				$('#'+parentElement).append(dynamicHtmlElement);
 			}
 			
 			function getImageDimensions(url) {
@@ -206,7 +195,7 @@
 						</div>
 					</div>`;
 							
-				$('#'+parentElement).append(dynamicHtmlElement);
+				return dynamicHtmlElement;
 				
 			}
 			
