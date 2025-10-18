@@ -105,7 +105,14 @@
 				visibility: visible;
 				opacity: 1;
 			}
-			
+			.scrollable {
+			  height: 690px;        /* altura fixa */
+			  margin-top: 8px;
+			  margin-bottom: 8px;
+			  padding-bottom: 8px;
+			  overflow-y: auto;      /* ativa a barra de rolagem vertical quando necessário */
+			  overflow-x: hidden;    /* impede rolagem horizontal */
+			}
 		</style>
 	</head>
 	<body>
@@ -163,7 +170,7 @@
 			async function renderBuildAccordion(parentElement, buildObj) {
 				var imgDimensions = await rescaleImage(buildObj.buildImageUrl);
 			
-				var dynamicHtmlElement = `<div class="accordion" id="accordion_${buildObj.character}_${buildObj.id}" style="width:100%; padding-left:20px; padding-right:20px; --bs-accordion-border-color: black;">
+				var dynamicHtmlElement = `<div class="accordion" id="accordion_${buildObj.character}_${buildObj.id}" style="width:100%; padding-left:20px; padding-right:20px; --bs-accordion-border-color: black; margin-bottom:10px">
 						<div class="accordion-item" style="background-color:#222020">
 							<h2 class="accordion-header" style="display:flex;">
 								<button class="accordion-button font-diablo" data-bs-toggle="collapse" data-bs-target="#item_accordion_${buildObj.character}_${buildObj.id}" style="background-color:#222020;">
@@ -351,7 +358,7 @@
 					<div><b>Spectres</b> contains a list of spectres that are powerful and their respective info (buff's, debuff's to enemies and auras). Also contains direct links to Wiki page (raise spectre skill page, each spectre page and the they provide auras).</div>
 					<div style="text-align:center; margin-top:40px"><img src="./assets/BUILD EDITADO LOLA.png" style="width:363px; height367.5:px"></img></div>
 				</div>
-				<div id="witchBuilds">
+				<div id="witchBuilds" class="scrollable">
 					<!--<div id="classNameLabel" style="text-align:left; margin:20px; font-size:20px">Witch Builds</div>
 					<div class="accordion" id="meuAccordion" style="width:100%; padding-left:20px; padding-right:20px; --bs-accordion-border-color: black;">
 						<div class="accordion-item" style="background-color:#222020">
