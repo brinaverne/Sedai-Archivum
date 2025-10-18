@@ -117,6 +117,7 @@
 				var lista_builds = buildsData;
 				console.log('Builds:' + JSON.stringify(lista_builds));
 				
+				document.getElementById(parentElement).innerHTML = '';	
 				lista_builds.filter(function(item){ return item.character == className}).forEach( function(item) {
 				
 					renderBuildAccordion(parentElement, item);
@@ -204,8 +205,7 @@
 							</div>
 						</div>
 					</div>`;
-				
-				document.getElementById(parentElement).innerHTML = '';				
+							
 				$('#'+parentElement).append(dynamicHtmlElement);
 				
 			}
