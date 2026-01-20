@@ -226,17 +226,38 @@
 				
 			}
 			
+			const playlist = [
+							"./assets/Path of Exile - Legion.mp3",
+							"./assets/Path of Exile - Blight.mp3",
+							"./assets/Path of Exile - Maven.mp3",
+							"./assets/Path of Exile - Still Alive.mp3"
+						];
+			let playlistIndex = 0;
+			let audio;
+			
 			function playMusic(){
 				if (tocando == false){
-						tocando = true
+						tocando = true;
 						console.log('Mouse moved inside my body!');
 						console.log('X coordinate:', event.clientX);
 						console.log('Y coordinate:', event.clientY);
-						const audio = document.getElementById('bgm');
 						audio.muted = false;
+						playlistIndex = 0;
+						audio.src = playlist[playlistIndex];
 						audio.play();
+						audio.addEventListener("ended", () => {
+							playlistIndex++;
+							if (playlistIndex >= playlist.length) {
+								playlistIndex = 0
+							}
+							audio.src = playlist[playlistIndex];
+							audio.play();
+						});
+						
 				}
+				
 			}
+			
 			
 			
 			myElement.addEventListener('click', function(event) {
@@ -264,6 +285,7 @@
 				$("#sellingItems").hide()
 				$("#witchBuilds").hide()
 				$("#spectres").hide()
+				audio = document.getElementById('bgm');
 			})
 			
 			function manageRecipeContainer(id){
@@ -363,8 +385,11 @@
 					<source src=".\assets\video-orchard.mp4" type="video/mp4">
 				</video>
 				
-				<audio id="bgm" autoplay loop controls style="height:50px; margin-top:5px">
-					<source src="./assets/Path of Exile - Legion.mp3" type="audio/mp3">
+				<audio id="bgm" autoplay controls style="height:50px; margin-top:5px">
+					<!--<source src="./assets/Path of Exile - Legion.mp3" type="audio/mp3">
+					<source src="./assets/Path of Exile - Blight.mp3" type="audio/mp3">
+					<source src="./assets/Path of Exile - Maven.mp3" type="audio/mp3">
+					<source src="./assets/Path of Exile - Still Alive.mp3" type="audio/mp3">-->
 				</audio>
 				
 					
@@ -423,12 +448,12 @@
 						</div>
 					</div>-->
 				</div>
-				<div id="scionBuilds"></div>
-				<div id="marauderBuilds"></div>
-				<div id="rangerBuilds"></div>
-				<div id="duelistBuilds"></div>
-				<div id="templarBuilds"></div>
-				<div id="shadowBuilds"></div>
+				<div id="scionBuilds" class="scrollable"></div>
+				<div id="marauderBuilds" class="scrollable"></div>
+				<div id="rangerBuilds" class="scrollable"></div>
+				<div id="duelistBuilds" class="scrollable"></div>
+				<div id="templarBuilds" class="scrollable"></div>
+				<div id="shadowBuilds" class="scrollable"></div>
 				
 				<div id="spectres">
 					<div style="text-align:left; margin:20px; font-size:20px">Spectres</div>
